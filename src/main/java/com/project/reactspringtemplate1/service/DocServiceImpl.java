@@ -1,6 +1,7 @@
 package com.project.reactspringtemplate1.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,4 +26,25 @@ public class DocServiceImpl implements DocService{
 		return docRepository.findAll();
 	}
 
+	@Override
+	public DocModel updateDoc(DocModel docModel) {
+		return docRepository.save(docModel);
+
+}
+
+	@Override
+	public void deleteDoc(Long id) {
+			docRepository.deleteById(id);
+	}
+
+	@Override
+	public Optional<DocModel> getDoc(Long id) {
+		return docRepository.findById(id);
+	}
+
+
+
+
+
+	
 }
